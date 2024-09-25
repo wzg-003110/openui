@@ -1,12 +1,13 @@
 import logging
 import os
+from typing import Union
 
 
 logger = logging.getLogger("openui")
 
 
 # Create a handler for the logger (you may need to adapt this based on your needs)
-def setup_logger(file: str | None = None):
+def setup_logger(file: Union[str, None] = None):
     global logger
     handler = logging.FileHandler(file) if file else logging.StreamHandler()
     handler.setLevel(logging.DEBUG)

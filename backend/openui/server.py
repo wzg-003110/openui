@@ -50,6 +50,7 @@ from pathlib import Path
 from typing import Optional
 import traceback
 import os
+from typing import Union
 
 
 @asynccontextmanager
@@ -218,7 +219,7 @@ async def chat_completions(
 @app.exception_handler(RequestValidationError)
 @app.exception_handler(ValidationError)
 async def validation_exception_handler(
-    request: Request, exc: RequestValidationError | ValidationError
+    request: Request, exc: Union[RequestValidationError, ValidationError]
 ):
     body = hasattr(exc, "body") and exc.body or None
     logger.exception("Validation Error: %s", exc)
