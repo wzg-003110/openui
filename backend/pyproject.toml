@@ -1,6 +1,5 @@
 [project]
 dependencies = [
-    "weave",
     "openai>=1.12.0",
     "ollama>=0.1.7",
     "itsdangerous>=2.0.1",
