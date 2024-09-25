@@ -27,7 +27,7 @@ import time
 import getpass
 from peewee import IntegrityError
 
-# import weave
+import weave
 from starlette.middleware.sessions import SessionMiddleware
 from .session import DBSessionStore, SessionData
 from .logs import logger
@@ -608,8 +608,8 @@ class Server(uvicorn.Server):
         signal.signal(signal.SIGTERM, shutdown_signal_handler)
 
     def run_with_wandb(self):
-        # if wandb_enabled:
-            # weave.init(os.getenv("WANDB_PROJECT", "openui-dev"))
+        if wandb_enabled:
+            weave.init(os.getenv("WANDB_PROJECT", "openui-dev"))
         self.run()
 
     @contextlib.contextmanager
