@@ -110,8 +110,8 @@ if __name__ == "__main__":
             # work with the uvicorn.run approach, so here we are
             uvicorn.run(
                 "openui.server:app",
-                host="0.0.0.0" if is_running_in_docker() else "127.0.0.1",
-                port=7878,
+                host="0.0.0.0" if is_running_in_docker() else "0.0.0.0",
+                port=7860,
                 reload=reload,
             )
         else:
